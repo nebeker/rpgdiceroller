@@ -19,11 +19,11 @@ def success(roll):
 	if roll == 6: #Explode 6
 		return 1 + success(rolld(6))
 	elif roll in [4, 5]:
-		return 1
+		  return 1
 	elif roll in [2, 3]:
 		return 0
 	elif roll == 1:
-		return -1
+		return -2
 	else:
 		raise Exception("Must roll a d6.")
 
