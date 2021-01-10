@@ -6,6 +6,13 @@ def rolld(faces):
 		raise Exception("Must be a regular sided die, up to a d20.")
 	return random.randint(1, faces)
 
+def rollmod(faces, mod):
+	"Rolls a faces-sided die with a modifier."
+	if not isinstance(mod, int) or mod >= 10 or mod <= -5:
+		raise Exception("Modifier must be between -5 and 10.")
+	roll = rolld(faces)
+	return str(roll) + " + " + str(mod) + " = " + str(roll+mod)
+
 def rollnd(n, faces):
 	"Rolls n faces-sided dice"
 	if not isinstance(n, int) or n < 1:
