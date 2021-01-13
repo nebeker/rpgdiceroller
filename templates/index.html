@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RPG dice roller</title>
+</head>
+<body>
+   <h1>Welcome to RPG dice roller</h1>
+
+   <form method="post">
+        <div class="form-group">
+            <label for="title">Die faces</label>
+            <input type="text" name="faces"
+                   placeholder="20" class="form-control"
+                   value="{{ request.form['faces'] }}"></input>
+        </div>
+        <div class="form-group">
+            With:
+        </div>
+        <div class="form-group">
+            <input type="checkbox" name="advantage"/> Advantage
+        </div>
+        <div class="form-group">
+            <input type="checkbox" name="disadvantage"/> Disadvantage
+        </div>
+        <div class="form-group">
+            <label for="mod">Mod</label>
+            <input type="text" name="mod"
+                   placeholder="0" class="form-control"
+                   value="{{ request.form['mod'] }}"></input>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Roll</button>
+        </div>
+    </form>
+    <div>
+        {{ result }}
+    </div>
+</body>
+</html>
