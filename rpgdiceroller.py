@@ -11,7 +11,7 @@ def rollmod(faces, mod):
 	if not isinstance(mod, int) or mod >= 10 or mod <= -5:
 		raise Exception("Modifier must be between -5 and 10.")
 	roll = rolld(faces)
-	return str(roll) + " + " + str(mod) + " = " + str(roll+mod)
+	return roll+mod, roll
 
 def rollnd(n, faces):
 	"Rolls n faces-sided dice"
@@ -21,6 +21,16 @@ def rollnd(n, faces):
 	for i in range(n):
 		rolls.append(rolld(faces))	
 	return rolls
+
+def rollad(faces):
+	"Rolls a faces-sided die with advantage."
+	rolls = rollnd(2, faces)
+	return max(rolls), rolls
+
+def rolldis(faces):
+	"Rolls a faces-sided die with disadvantage."
+	rolls = rollnd(2, faces)
+	return min(rolls), rolls
 
 def success(roll):
 	if roll == 6: #Explode 6
