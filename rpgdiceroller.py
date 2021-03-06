@@ -19,7 +19,7 @@ def rollnd(n, faces):
 		raise Exception("Must roll at least one die.")
 	rolls = []
 	for i in range(n):
-		rolls.append(rolld(faces))	
+		rolls.append(rolld(faces))
 	return rolls
 
 def rollad(faces):
@@ -30,6 +30,16 @@ def rollad(faces):
 def rolldis(faces):
 	"Rolls a faces-sided die with disadvantage."
 	rolls = rollnd(2, faces)
+	return min(rolls), rolls
+
+def rolladmod(faces, mod):
+	"Rolls a faces-sided die with advantage and mod modifier."
+	rolls = rollmod(faces, mod), rollmod(faces, mod)
+	return max(rolls), rolls
+
+def rolldismod(faces, mod):
+	"Rolls a faces-sided die with disadvantage and mod modifier."
+	rolls = rollmod(faces, mod), rollmod(faces, mod)
 	return min(rolls), rolls
 
 def success(roll):
