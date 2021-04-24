@@ -2,7 +2,7 @@ import random
 
 def rolld(faces):
 	"Rolls a d-sided die"
-	if faces not in [4, 6, 8, 10, 12, 20]:
+	if faces not in [4, 6, 8, 10, 12, 20, 100]:
 		raise Exception("Must be a regular sided die, up to a d20.")
 	return random.randint(1, faces)
 
