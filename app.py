@@ -40,5 +40,9 @@ def index():
             disadvantage = False
 
         redirect(request.referrer)
+    elif request.method == 'GET':
+        advantage = False
+        disadvantage = False
+        redirect(request.referrer)
 
     return render_template('index.html', result=result, advantage=advantage, disadvantage=disadvantage)
