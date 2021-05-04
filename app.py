@@ -35,6 +35,8 @@ def index():
             result = rollmod(faces, mod)
         else:
             result = rolld(faces)
+            advantage = False
+            disadvantage = False
 
         redirect(request.referrer)
 
