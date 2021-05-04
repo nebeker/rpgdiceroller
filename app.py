@@ -31,10 +31,11 @@ def index():
                 result = rolldismod(faces, mod)
             else:
                 result = rolldis(faces)
-        elif (mod != 0):
-            result = rollmod(faces, mod)
         else:
-            result = rolld(faces)
+            if (mod != 0):
+                result = rollmod(faces, mod)
+            else:
+                result = rolld(faces)
             advantage = False
             disadvantage = False
 
